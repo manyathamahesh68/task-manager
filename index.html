@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager - Student Assignment Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">
+                    <i class="fas fa-tasks"></i>
+                    Task Manager
+                </h1>
+                <p class="subtitle">Never miss an assignment deadline again</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="task-input-section">
+                <div class="card">
+                    <h2 class="section-title">
+                        <i class="fas fa-plus-circle"></i>
+                        Add New Task
+                    </h2>
+                    <form id="taskForm" class="task-form">
+                        <div class="form-group">
+                            <label for="taskTitle" class="form-label">
+                                <i class="fas fa-pencil-alt"></i>
+                                Task Title
+                            </label>
+                            <input 
+                                type="text" 
+                                id="taskTitle" 
+                                class="form-input" 
+                                placeholder="Enter assignment name..."
+                                required
+                            >
+                        </div>
+                        <div class="form-group">
+                            <label for="taskDeadline" class="form-label">
+                                <i class="fas fa-calendar-alt"></i>
+                                Deadline
+                            </label>
+                            <input 
+                                type="date" 
+                                id="taskDeadline" 
+                                class="form-input"
+                                required
+                            >
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Add Task
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <section class="task-display-section">
+                <div class="card">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-list"></i>
+                            Your Tasks
+                        </h2>
+                        <div class="task-stats">
+                            <span class="stat-badge pending">
+                                <i class="fas fa-clock"></i>
+                                <span id="pendingCount">0</span> Pending
+                            </span>
+                            <span class="stat-badge completed">
+                                <i class="fas fa-check-circle"></i>
+                                <span id="completedCount">0</span> Completed
+                            </span>
+                            <span class="stat-badge overdue">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <span id="overdueCount">0</span> Overdue
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="filter-controls">
+                        <button class="filter-btn active" data-filter="all">
+                            All Tasks
+                        </button>
+                        <button class="filter-btn" data-filter="pending">
+                            Pending
+                        </button>
+                        <button class="filter-btn" data-filter="completed">
+                            Completed
+                        </button>
+                        <button class="filter-btn" data-filter="overdue">
+                            Overdue
+                        </button>
+                    </div>
+
+                    <div class="sort-controls">
+                        <select id="sortSelect" class="sort-select">
+                            <option value="deadline-asc">Deadline (Earliest First)</option>
+                            <option value="deadline-desc">Deadline (Latest First)</option>
+                            <option value="title-asc">Title (A-Z)</option>
+                            <option value="title-desc">Title (Z-A)</option>
+                            <option value="date-added">Date Added</option>
+                        </select>
+                    </div>
+
+                    <div id="taskList" class="task-list">
+                        <div class="empty-state">
+                            <i class="fas fa-clipboard-list"></i>
+                            <h3>No tasks yet</h3>
+                            <p>Start by adding your first assignment above!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
